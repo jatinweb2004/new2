@@ -20,7 +20,8 @@ connectDB();
 const app = express();
 // app.use(cors({origin:["http://localhost:3000"]}));
 // Middleware
-app.use(cors());
+app.use(cors({origin:["http://localhost:3000", "https://montrack-navy.vercel.app"]}));
+
 
 
 // Set view engine
