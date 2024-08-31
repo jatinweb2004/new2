@@ -20,7 +20,7 @@ connectDB();
 const app = express();
 // app.use(cors({origin:["http://localhost:3000"]}));
 // Middleware
-app.use(cors({origin:["http://localhost:3000", "https://montrack-navy.vercel.app"]}));
+app.use(cors({origin:["http://localhost:3000", "new3-eta.vercel.app"]}));
 
 
 
