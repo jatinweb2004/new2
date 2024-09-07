@@ -26,7 +26,7 @@ app.use(cors({
   credentials: true // if you want to allow credentials like cookies
 }));
 
-
+app.options('*', cors());
 
 // Set view engine
 app.set("view engine", "es");
