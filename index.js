@@ -22,11 +22,21 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: ["http://localhost:3000", "https://new3-eta.vercel.app"], // ensure HTTPS for production
-  methods: ["GET", "POST"], // lowercase 'methods'
-  credentials: true // if you want to allow credentials like cookies
+  methods: ["GET", "POST"] // lowercase 'methods'
+ // if you want to allow credentials like cookies
 }));
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+};
 
-app.options('*', cors());
+app.use(cors(corsOptions));
 
 // Set view engine
 app.set("view engine", "es");
