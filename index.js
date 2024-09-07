@@ -20,11 +20,8 @@ connectDB();
 const app = express();
 // app.use(cors({origin:["http://localhost:3000"]}));
 // Middleware
-app.use(cors({
-  origin: ["http://localhost:3000", "https://new3-eta.vercel.app"], // ensure HTTPS for production
-  methods: ["GET", "POST"] // lowercase 'methods'
- // if you want to allow credentials like cookies
-}));
+const allowedOrigins=["http://localhost:3000", "https://new3-eta.vercel.app"]; // ensure HTTPS for production
+
 const corsOptions = {
     origin: (origin, callback) => {
         if (allowedOrigins.includes(origin) || !origin) {
